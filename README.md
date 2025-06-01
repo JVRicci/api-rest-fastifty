@@ -59,3 +59,17 @@ Com isso é possivel rodar os comandos do Knex através do seguinte comando
     npm run knex -- migrate:make create-document
 
 Sendo que o npm run serve para rodar o Knex. O que vem após ' -- ' é o comando em si do Knex
+
+# Comandos Knex
+
+Para criação de migrations. Sempre usar o padrão da seguinte forma: função da migration, no caso create, seguido pelo nome da tabela
+
+    npm run knex -- migrate:make create-table-name
+
+Para execução das migrations e efetivação no banco
+
+    npm run knex -- migrate:latest
+
+Desfazendo uma a ultima migration
+
+    npm run knex -- migrate:rollback
