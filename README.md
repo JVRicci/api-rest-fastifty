@@ -73,3 +73,13 @@ Para execução das migrations e efetivação no banco
 Desfazendo uma a ultima migration
 
     npm run knex -- migrate:rollback
+
+# ENVs
+
+Para leitura de de arquivos .env, é necessário instalar
+
+    npm install dotenv
+
+E após isso, importar o arquivo da seguinte forma
+
+    import 'dotenv/config'
