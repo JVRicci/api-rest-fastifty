@@ -83,3 +83,9 @@ Para leitura de de arquivos .env, é necessário instalar
 E após isso, importar o arquivo da seguinte forma
 
     import 'dotenv/config'
+
+# Zod
+
+Lib responsável pela validação de dados da aplicação
+
+    npm install zod
