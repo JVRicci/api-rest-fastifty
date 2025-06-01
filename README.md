@@ -44,3 +44,18 @@ E colocar a configuração interna dele igual a do arquivo do projeto
 Para o banco de dados é utilizado o SQLite e como query builder Knex
 
     npm install knex sqlite3
+    npm install --save-dev cross-env
+
+Após criar o arquivo knexfile.ts e database.ts, igual ao do projeto, rodar o seguinte comando
+
+    npx tsx knexfile.ts
+
+Por padrão o knex não suporta TS, sendo necessário criar o arquivo de configuração knexfile, para importar as config de conexão do banco. Além disso, no package.config, adcionar a linha 
+
+    "knex": "cross-env NODE_ENV=development tsx ./node_modules/knex/bin/cli.js --knexfile knexfile.ts",
+    
+Com isso é possivel rodar os comandos do Knex através do seguinte comando
+
+    npm run knex -- migrate:make create-document
+
+Sendo que o npm run serve para rodar o Knex. O que vem após ' -- ' é o comando em si do Knex
