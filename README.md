@@ -1,4 +1,4 @@
-#Configuração inicial do projeto
+# Configuração inicial do projeto
 
 Para criação do projeto foram necessários alguns comandos
 
