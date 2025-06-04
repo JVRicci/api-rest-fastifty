@@ -121,3 +121,11 @@ Para utilizar, basta apenas criar uma função, como por exemplo as contidas na 
             preHandler: [checkSessionIdExists]
         },
         ...
+
+Também é possivel criar para contextos e globalmente da seguinte forma 
+
+    	app.addHook('preHandler', async (request, reply) => {
+            console.log(`[${request.method}] ${request.url} `)
+        })
+
+Criando dessa forma, o preHandler fica restrito ao arquivo que se encontra

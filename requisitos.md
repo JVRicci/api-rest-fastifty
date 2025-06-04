@@ -9,4 +9,4 @@
 
 - [x] A transação pode ser do tipo crédito que somará ao valor total ou débito que subtrairá;
 - [ ] Deve ser possível identificarmos o usuário entre requisições;
-- [ ] O usuário só pode visualizar transações o qual ele criou
+- [x] O usuário só pode visualizar transações o qual ele criou
