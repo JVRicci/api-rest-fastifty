@@ -95,3 +95,29 @@ Lib responsável pela validação de dados da aplicação
 # Arquivos com extensão .d.ts
 
 São arquivos dedicados a sobrescrever tipos já existentes. Por exemplo, como o knex não possui interfaces para tratamento das tabelas, é possivel criar um arquivo knex.d.ts e fazer isso (o nome pode ser qualquer um)
+
+# Sistema de cookies no Fastify
+
+Para autenticação e validação de usuários no projeto, é utilizado o o padrão de cookies. Quando um usuário efetua a primeira transação, é atribuido um cookie ao navegador. A lib responsável é a seguinte
+
+    npm i @fastify/cookie
+
+Para verificar se a requisição possui cookies
+
+    const { cookie_name } = session.cookies
+
+    ou 
+
+    const cookie = session.cookies.cookie_name
+
+# Middlares no Fastify
+
+Também chamados de preHandler, pois ocorrem antes do metodo principal, o handler. Auxiliam na verificação antes da execução do código
+Para utilizar, basta apenas criar uma função, como por exemplo as contidas na pasta middlewares e após isso, importar da seguinte forma na requisição
+
+    app.get('/',
+        // Registra midlawares utilizados por essa rota
+        {
+            preHandler: [checkSessionIdExists]
+        },
+        ...
