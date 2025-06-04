@@ -183,3 +183,5 @@ Ficam da seguinte forma
     it('User can create a new transaction', async () => {
         ...
     })
+
+Obs: Testes devem ser totalmente idependentes, não podem necessitar de outros testes, ou seja: caso o teste seja um get para requisitar uma info, nesse mesmo teste é necessário que tenha uma inserção de valores, ela não pode ser efetuada em outro teste.

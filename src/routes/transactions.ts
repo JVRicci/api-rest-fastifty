@@ -18,7 +18,7 @@ export function transactionRoutes(app : FastifyInstance) {
                 .where('session_id', sessionId)
                 .select('*')
 
-            return { transaction }
+            return reply.status(200).send({ transaction }) 
     })
 
     // Pesquisa pelo id
