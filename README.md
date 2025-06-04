@@ -129,3 +129,57 @@ Também é possivel criar para contextos e globalmente da seguinte forma
         })
 
 Criando dessa forma, o preHandler fica restrito ao arquivo que se encontra
+
+# Testes Automatizados / DDD
+
+Testes para auxilio na segurança da aplicação, prevenindo possiveis problemas que viriam a ocorrer em produção
+
+São dividos em três tipos:
+
+## Testes Unitários
+
+Testes que validam o funcionamento o funcionamento de componentes isolados da aplicação
+
+## Testes de Integração
+
+Testes que validam a comunicação entre os componentes da aplicação
+
+## E2E - Ponta a Ponta
+
+Simulam um usuáruio operando a aplicação (O ponta a ponta seria desde a rota até o Banco no caso de back-end)
+
+# Vitest
+
+Para criação dos testes automatizados, a aplicação utiliza o Vitest
+
+    npm install vitest -D
+
+Após a instalacão, os testes são executados em arquivos de extensão .spec.ts ou test.ts
+
+Para executar os testes apenas é necessário rodar o comando 
+
+    npx vitest
+
+É possivel realizar testes sem rodar o servidor, sem usar metodo listen do server
+
+    npm i supertest -D
+    npm i -D @types/supertest
+
+Para executar testes de back end, é necessário fazer com que todos os plugins do fastify sejam carregado previamente. Normalmente isso é feito com uma função 
+
+    beforeAll( async ()=>{
+        await app.ready()
+    })
+
+Para que o server não fique sendo executado permanentemente 
+
+    afterAll( async () => {
+        await app.close()
+    })
+
+Os testes são feitos com a função it ou test, ambas tem a mesma finalidade
+Ficam da seguinte forma
+
+    it('User can create a new transaction', async () => {
+        ...
+    })
