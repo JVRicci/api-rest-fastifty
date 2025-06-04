@@ -6,9 +6,25 @@ import { knex } from '../database'
 export function transactionRoutes(app : FastifyInstance) {
     app.get('/', async () => {    
         // const tables = await knex('sqlite_schema').select('*')
-        return await knex('transactions')
-            .where('amount', 1000)
+        const transaction = await knex('transactions')
             .select('*')
+
+        return { transaction }
+    })
+
+    app.get("/:id", async (request) =>{
+        const getTransactionParamsSchema = z.object({
+            id: z.string().uuid()
+        })
+
+        const { id } = getTransactionParamsSchema.parse(request.params)
+
+        const transaction = await knex('transactions')
+            .where('id', id)
+            .first()
+            .select('*')
+
+        return { transaction }
     })
 
     app.post('/', async (request, reply)=> {
