@@ -14,11 +14,11 @@ export function transactionRoutes(app : FastifyInstance) {
         // const tables = await knex('sqlite_schema').select('*')
             const { sessionId } = request.cookies
 
-            const transaction = await knex('transactions')
+            const transactions = await knex('transactions')
                 .where('session_id', sessionId)
                 .select('*')
 
-            return reply.status(200).send({ transaction }) 
+            return reply.status(200).send({ transactions }) 
     })
 
     // Pesquisa pelo id
@@ -96,7 +96,7 @@ export function transactionRoutes(app : FastifyInstance) {
             .insert({
                 id : randomUUID(),
                 title,
-                amount : type  == 'credit' ? amount : amount * -1,
+                amount : type  == 'debit' ? amount : amount * -1,
                 session_id: sessionId
             })
 

@@ -1,5 +1,12 @@
-import 'dotenv/config'
+import { config } from 'dotenv'
 import { z } from 'zod'
+
+// Caso for executado server em ambiente de testes, ele irá utilizar .env.test
+if(process.env.NODE_ENV == 'test'){
+    config({ path: '.env.test'})
+} else {
+    config()
+}
 
 const envSchema = z.object({
     NODE_ENV: z.enum(

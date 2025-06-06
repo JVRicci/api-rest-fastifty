@@ -185,3 +185,5 @@ Ficam da seguinte forma
     })
 
 Obs: Testes devem ser totalmente idependentes, não podem necessitar de outros testes, ou seja: caso o teste seja um get para requisitar uma info, nesse mesmo teste é necessário que tenha uma inserção de valores, ela não pode ser efetuada em outro teste.
+
+Para testes, o ideal é que os testes sejam executados em ambiente exclusivo para isso, dessa forma é isolado o banco de teste com variaveis especificas para testes no arquivo .env.test

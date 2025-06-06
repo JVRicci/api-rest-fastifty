@@ -15,5 +15,5 @@ app.addHook('preHandler', async (request, reply) => {
 
 // Registro do plugin de transactions e configura prefixo
 app.register(transactionRoutes, {
-  prefix : 'transactions'
+    prefix : 'transactions'
 })
