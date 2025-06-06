@@ -15,18 +15,18 @@ const envSchema = z.object({
             'test',
             'prod'
         ])
-        .default('develop'),
-    DATABASE_CLIENT: z.string(),
+        .default('prod'),
+    DATABASE_CLIENT: z.enum(['sqlite', 'pg']),
     DATABASE_URL: z.string(),
     MIGRATIONS_URL : z.string(),
-    PORT : z.number().default(3333)
+    PORT : z.coerce.number().default(3333)
 })
 
 // Faz conversão automática das variáveis da env
 export const _env = envSchema.safeParse(process.env)
 
 if(_env.success === false) {
-    console.error('Invalid enviroment variables!\n',_env.error.format)
+    console.error('Invalid enviroment variables!\n',_env.error.format())
 
     throw new Error('Invalid enviroment variables')
 }
