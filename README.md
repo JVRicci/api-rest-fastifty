@@ -223,9 +223,11 @@ Para executar testes de back end, é necessário fazer com que todos os plugins 
 
 Para que o server não fique sendo executado permanentemente 
 
+```js
     afterAll( async () => {
         await app.close()
     })
+```
 
 Os testes são feitos com a função it ou test, ambas tem a mesma finalidade
 Ficam da seguinte forma

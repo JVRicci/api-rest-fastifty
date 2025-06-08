@@ -1,5 +1,5 @@
 #Dependencies
-nodemodules
+node_modules
 
 #Database
 database/*.db

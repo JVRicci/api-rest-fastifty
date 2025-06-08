@@ -10,8 +10,7 @@
     "knex": "node --no-warnings --import tsx ./node_modules/knex/bin/cli.js",
     "lint": "eslint src --ext .ts --fix",
     "test": "vitest",
-    "build": "npx --no-install tsup src --out-dir build"
-
+    "build": "tsup src --out-dir build"
   },
   "keywords": [],
   "author": "",
