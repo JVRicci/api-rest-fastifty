@@ -24,6 +24,7 @@ const envSchema = z.object({
 
 // Faz conversão automática das variáveis da env
 export const _env = envSchema.safeParse(process.env)
+console.log(_env)
 
 if(_env.success === false) {
     throw new Error(`Invalid enviroment variables\n ${_env.error.format()}`,)
