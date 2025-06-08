@@ -13,9 +13,9 @@ const envSchema = z.object({
         [
             'develop',
             'test',
-            'prod'
+            'production'
         ])
-        .default('prod'),
+        .default('production'),
     DATABASE_CLIENT: z.enum(['sqlite', 'pg']),
     DATABASE_URL: z.string(),
     MIGRATIONS_URL : z.string(),
@@ -26,9 +26,7 @@ const envSchema = z.object({
 export const _env = envSchema.safeParse(process.env)
 
 if(_env.success === false) {
-    console.error('Invalid enviroment variables!\n',_env.error.format())
-
-    throw new Error('Invalid enviroment variables')
+    throw new Error(`Invalid enviroment variables\n ${_env.error.format()}`,)
 }
 
 export const env = _env.data
