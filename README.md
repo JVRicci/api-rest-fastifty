@@ -71,6 +71,8 @@ Por padrão o knex não suporta TS, sendo necessário criar o arquivo de configu
 
 ```js
     "knex": "tsx ./node_modules/knex/bin/cli.js --knexfile knexfile.ts",
+    // ou, preferencialmente para deploy em server
+    "knex": "node --no-warnings --import tsx ./node_modules/knex/bin/cli.js",
 ```
     
 Com isso é possivel rodar os comandos do Knex através do seguinte comando
